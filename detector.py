@@ -67,21 +67,29 @@ def performImgDet(imagepath,filename=None,write=True):
 
 def performVidDet(vidpath,filename):
     c=0
+    total=0
     objs=[]
     videocap = cv2.VideoCapture(vidpath)
     try:
+        #st=0
         while videocap.isOpened():
             flag,frame = videocap.read()
             if not c:
+            #    total+=1
+            #    s=time.time()
                 frame = performImgDet(frame,False,write=False)
-                cv2.imshow(filename,frame[0])
+            #    st=st+time.time()-s
+            #    cv2.imshow(filename,frame[0])
                 objs.extend(frame[1])
-                print(c)
             c += 1
-            c = c % 30
-            if cv2.waitKey(10) == 27:
+            c = c % 1
+            if cv2.waitKey(1) == 27:
                 break
+            #if st>1:
+            #    print(total,' total ',st)
+            #    st=0
     except cv2.error as e:
         return list(set(objs))
-# performVidDet('./static/videos/sample1.mp4','sample1.mp4')
+
+performVidDet('./static/videos/sample1.mp4','sample1.mp4')
 
