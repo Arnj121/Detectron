@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSD - Demo</title>
+    <link href="http://localhost:3033/static/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="root">
+        <div id="left-menu">
+            <div style="border-style: solid; padding: 5px 0;border-width: 0 0 1px 0;
+            border-color: whitesmoke;display: flex;flex-direction: row;margin-bottom: 10px">
+                <label style="margin: 10px auto; background: whitesmoke;padding: 10px 20px;border-radius: 5px;color: #c57c7c;">Object Detector</label>
+            </div>
+            <div id="modeloptions">
+                <label class="models" id="ssd300" style="background: whitesmoke;color: black;">SSD300</label>
+                <a href="http://localhost:3033/report" class="models" id="report" style="background: whitesmoke;color: black;text-decoration:none" target="_blank">View Report</a>
+                <label class="models" id="videotab" style="background: whitesmoke;color: black;">Video object finder</label>
+            </div>
+        </div>
+        <div id="right-frame" style="visibility: visible">
+            <div id="options">
+                <label id="back" style="visibility: hidden">Back</label>
+                <input type="text" id="search_box" placeholder="Search for images">
+                <label onclick="search()" id="search">Search</label>
+            </div>
+            <div id="detect-frame" style="display: flex;flex-direction: column;height: 100%">
+                <div style="display: flex;flex-direction: row;justify-content: space-evenly;width: 100%;margin: 20px 0">
+                    <label>Original Image</label>
+                    <label>Image with Bounding box</label>
+                </div>
+                <div style="display: flex;flex-direction: row;
+                height: 60%;width: 100%;margin: 10px auto">
+                    <div id="originalframe">
+                        <img id="originalimg" src="">
+                    </div>
+                    <div id="resultframe">
+                        <img id="resultingimg" src="">
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content: space-evenly;width: 100%;margin: 5px 0">
+                    <label class="optionlbl" id="uplaodpic" onclick="inputpic()">Upload a pic</label>
+                    <input type="file" id="inputpic" style="visibility: hidden">
+                    <label id="detectOBj" class="optionlbl">Detect Objects</label>
+                </div>
+                <div id="resulttab" style="display: none">
+                    <label style="color: #c57c7c;">Results</label>
+                </div>
+            </div>
+            <div id="search-results" style="display: none;overflow-y: scroll;overflow-x:hidden">
+                <label id="images-found" style="margin: 5px auto;background: whitesmoke;color: #c57c7c;
+                    padding: 5px 10px; border-radius: 5px;" ></label>
+                <div id="search-results-frame" style="display: flex;flex-wrap: wrap;margin: 10px">
+                </div>
+            </div>
+            <div id="videoFinder" style="display: none;flex-direction: column;place-items: center">
+                <div style="margin: 10px auto;height: 400px;width: 600px;display: flex;flex-direction: column">
+                    <video src="" height="400" width="600" id="videoPlay" controls style="display: none"></video>
+                    <label id="hintlbl" style="margin: auto auto">Click on the
+                        <label class="optionlbl" style="margin: 5px" id="uploadVideo">Upload Video</label> button</label>
+                </div>
+                <label class="optionlbl" style="margin: 5px auto;display: none" id="parseVideo">Parse video</label>
+                <label class="optionlbl" style="margin: 5px;display: none" id="uploadVideo2">Upload Video</label>
+                <label id="parsinglbl" style="display: none">Parsing</label>
+                <input style="visibility: hidden" id="videoInputBtn" type="file" >
+                <label id="objectsfound" style="display:none;margin: 5px"></label>
+                <div id="result-area" style="display: none;margin: 10px auto;flex-direction: row;flex-wrap: wrap">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="http://localhost:3033/static/script.js"></script>

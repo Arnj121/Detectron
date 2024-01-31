@@ -1,0 +1,7 @@
+static/JPEGImages
+static/predictionFiles
+weights/ssd300_mAP_77.43_v2.pth
+sample1.mp4
+static/videos
+.idea
+__pycache__
