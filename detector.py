@@ -91,5 +91,5 @@ def performVidDet(vidpath,filename):
     except cv2.error as e:
         return list(set(objs))
 
-performVidDet('./static/videos/sample1.mp4','sample1.mp4')
+#performVidDet('./static/videos/sample1.mp4','sample1.mp4')
 
