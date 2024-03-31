@@ -82,7 +82,7 @@ def performVidDet(vidpath,filename):
             #    cv2.imshow(filename,frame[0])
                 objs.extend(frame[1])
             c += 1
-            c = c % 1
+            c = c % 30
             if cv2.waitKey(1) == 27:
                 break
             #if st>1:
