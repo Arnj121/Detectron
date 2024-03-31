@@ -24,7 +24,7 @@ document.getElementById('detectOBj').onclick = (e)=>{
     if(file!=0) {
         let formdata = new FormData()
         formdata.append('file', file)
-        fetch('http://localhost:3033/inputpic', {method: 'POST', body: formdata})
+        fetch('http://3.15.4.94:3033/inputpic', {method: 'POST', body: formdata})
             .then((res) => res.json())
             .then((res) => {
                 document.getElementById('resultingimg').setAttribute('src', res['link'])
@@ -54,7 +54,7 @@ document.getElementById('detectOBj').onclick = (e)=>{
 
 function search(e) {
     let text = document.getElementById('search_box').value
-    let url = 'http://localhost:3033/search?search='+text
+    let url = 'http://3.15.4.94:3033/search?search='+text
     let xhr = new XMLHttpRequest()
     xhr.onreadystatechange=()=>{
         if(xhr.status==200 && xhr.readyState==4){
@@ -89,7 +89,7 @@ function displaySearchResults(results){
         detect.id=results[1][i][2]
         detect.style.borderRadius='5px'
         detect.onclick =(e)=>{
-            fetch('http://localhost:3033/detectimg?filename='+e.target.id)
+            fetch('http://3.15.4.94:3033/detectimg?filename='+e.target.id)
                 .then(res=>res.json())
                 .then((res)=>{
                     document.getElementById('img-'+e.target.id).src = res['link']
@@ -164,7 +164,7 @@ document.getElementById('parseVideo').onclick = ()=>{
         counter+=1
         counter=counter%4
     },600)
-    fetch('http://localhost:3033/inputvid', {method: 'POST', body: formdata})
+    fetch('http://3.15.4.94:3033/inputvid', {method: 'POST', body: formdata})
         .then((res) => res.json())
         .then((res) => {
             clearInterval(timer)
